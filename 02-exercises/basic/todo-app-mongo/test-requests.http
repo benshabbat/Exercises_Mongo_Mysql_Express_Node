@@ -1,14 +1,14 @@
-# בדיקות API - Todo List
+# API Tests - Todo List
 
-## יצירת משימות
+## Create Todos
 
-### משימה בעדיפות גבוהה
+### High priority todo
 POST http://localhost:3000/todos
 Content-Type: application/json
 
 {
-  "title": "קנה חלב",
-  "description": "חלב 3% מהסופר",
+  "title": "Buy milk",
+  "description": "3% milk from the store",
   "priority": "high"
 }
 
@@ -17,8 +17,8 @@ POST http://localhost:3000/todos
 Content-Type: application/json
 
 {
-  "title": "נקה את הבית",
-  "description": "כל החדרים",
+  "title": "Clean the house",
+  "description": "All rooms",
   "priority": "medium"
 }
 
@@ -27,7 +27,7 @@ POST http://localhost:3000/todos
 Content-Type: application/json
 
 {
-  "title": "קרא ספר",
+  "title": "Read a book",
   "priority": "low"
 }
 
@@ -36,68 +36,68 @@ POST http://localhost:3000/todos
 Content-Type: application/json
 
 {
-  "title": "הכן אוכל לשבת"
+  "title": "Prepare food for weekend"
 }
 
-## קריאת משימות
+## Read Todos
 
-### כל המשימות
+### All todos
 GET http://localhost:3000/todos
 
-### משימה ספציפית
+### Specific todo
 GET http://localhost:3000/todos/YOUR_TODO_ID
 
-### משימות שהושלמו
+### Completed todos
 GET http://localhost:3000/todos/completed
 
-### משימות ממתינות
+### Pending todos
 GET http://localhost:3000/todos/pending
 
-### לפי עדיפות - גבוהה
+### By priority - High
 GET http://localhost:3000/todos/priority/high
 
-### לפי עדיפות - בינונית
+### By priority - Medium
 GET http://localhost:3000/todos/priority/medium
 
-### לפי עדיפות - נמוכה
+### By priority - Low
 GET http://localhost:3000/todos/priority/low
 
-## חיפוש
+## Search
 
-### חיפוש משימות
-GET http://localhost:3000/todos/search?q=חלב
+### Search todos
+GET http://localhost:3000/todos/search?q=milk
 
 ###
-GET http://localhost:3000/todos/search?q=בית
+GET http://localhost:3000/todos/search?q=house
 
-## עדכון משימות
+## Update Todos
 
-### עדכון משימה
+### Update todo
 PUT http://localhost:3000/todos/YOUR_TODO_ID
 Content-Type: application/json
 
 {
-  "title": "קנה חלב ולחם",
+  "title": "Buy milk and bread",
   "completed": true
 }
 
-### החלפת סטטוס (toggle)
+### Toggle status
 PATCH http://localhost:3000/todos/YOUR_TODO_ID/toggle
 
-## מחיקת משימות
+## Delete Todos
 
-### מחיקת משימה ספציפית
+### Delete specific todo
 DELETE http://localhost:3000/todos/YOUR_TODO_ID
 
-### מחיקת כל המשימות שהושלמו
+### Delete all completed todos
 DELETE http://localhost:3000/todos
 
-## סטטיסטיקות
+## Statistics
 
-### סטטיסטיקות כלליות
+### General statistics
 GET http://localhost:3000/todos/stats
 
-## בסיסי
+## Basic
 
-### דף הבית
+### Home page
 GET http://localhost:3000/

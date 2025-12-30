@@ -1,6 +1,6 @@
 // ========================================
 // Todo List App - MongoDB Native Driver
-// פתרון מלא
+// Complete Solution
 // ========================================
 
 import express from 'express';
@@ -17,7 +17,7 @@ app.use(express.json());
 let db = null;
 
 // ========================================
-// חיבור למסד נתונים
+// Database Connection
 // ========================================
 
 async function connectToDatabase() {
@@ -34,10 +34,10 @@ async function connectToDatabase() {
 }
 
 // ========================================
-// CRUD בסיסי
+// Basic CRUD
 // ========================================
 
-// POST /todos - יצירת משימה חדשה
+// POST /todos - Create new todo
 app.post('/todos', async (req, res) => {
   try {
     const { title, description, priority } = req.body;
@@ -73,7 +73,7 @@ app.post('/todos', async (req, res) => {
   }
 });
 
-// GET /todos - קבלת כל המשימות
+// GET /todos - Get all todos
 app.get('/todos', async (req, res) => {
   try {
     const todos = await db.collection('todos')
@@ -94,7 +94,7 @@ app.get('/todos', async (req, res) => {
   }
 });
 
-// GET /todos/:id - קבלת משימה ספציפית
+// GET /todos/:id - Get specific todo
 app.get('/todos/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -129,7 +129,7 @@ app.get('/todos/:id', async (req, res) => {
   }
 });
 
-// PUT /todos/:id - עדכון משימה
+// PUT /todos/:id - Update todo
 app.put('/todos/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -178,7 +178,7 @@ app.put('/todos/:id', async (req, res) => {
   }
 });
 
-// DELETE /todos/:id - מחיקת משימה
+// DELETE /todos/:id - Delete todo
 app.delete('/todos/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -214,10 +214,10 @@ app.delete('/todos/:id', async (req, res) => {
 });
 
 // ========================================
-// פעולות נוספות
+// Additional Operations
 // ========================================
 
-// PATCH /todos/:id/toggle - שינוי סטטוס
+// PATCH /todos/:id/toggle - Toggle status
 app.patch('/todos/:id/toggle', async (req, res) => {
   try {
     const { id } = req.params;
@@ -267,7 +267,7 @@ app.patch('/todos/:id/toggle', async (req, res) => {
   }
 });
 
-// GET /todos/completed - משימות שהושלמו
+// GET /todos/completed - Get completed todos
 app.get('/todos/completed', async (req, res) => {
   try {
     const todos = await db.collection('todos')
@@ -288,7 +288,7 @@ app.get('/todos/completed', async (req, res) => {
   }
 });
 
-// GET /todos/pending - משימות ממתינות
+// GET /todos/pending - Get pending todos
 app.get('/todos/pending', async (req, res) => {
   try {
     const todos = await db.collection('todos')
@@ -309,7 +309,7 @@ app.get('/todos/pending', async (req, res) => {
   }
 });
 
-// GET /todos/priority/:level - סינון לפי עדיפות
+// GET /todos/priority/:level - Filter by priority
 app.get('/todos/priority/:level', async (req, res) => {
   try {
     const { level } = req.params;
@@ -339,7 +339,7 @@ app.get('/todos/priority/:level', async (req, res) => {
   }
 });
 
-// GET /todos/search?q=... - חיפוש משימות
+// GET /todos/search?q=... - Search todos
 app.get('/todos/search', async (req, res) => {
   try {
     const { q } = req.query;
@@ -372,7 +372,7 @@ app.get('/todos/search', async (req, res) => {
   }
 });
 
-// DELETE /todos - מחיקת כל המשימות שהושלמו
+// DELETE /todos - Delete all completed todos
 app.delete('/todos', async (req, res) => {
   try {
     const result = await db.collection('todos').deleteMany({
@@ -393,10 +393,10 @@ app.delete('/todos', async (req, res) => {
 });
 
 // ========================================
-// סטטיסטיקות
+// Statistics
 // ========================================
 
-// GET /todos/stats - סטטיסטיקות
+// GET /todos/stats - Get statistics
 app.get('/todos/stats', async (req, res) => {
   try {
     const total = await db.collection('todos').countDocuments();
@@ -429,7 +429,7 @@ app.get('/todos/stats', async (req, res) => {
 });
 
 // ========================================
-// נתיב בסיסי
+// Root Route
 // ========================================
 
 app.get('/', (req, res) => {
@@ -447,7 +447,7 @@ app.get('/', (req, res) => {
 });
 
 // ========================================
-// הפעלת השרת
+// Start Server
 // ========================================
 
 async function startServer() {

@@ -1,98 +1,98 @@
 // ========================================
 // Todo List App - MongoDB Native Driver
-// קובץ התחלה עם TODO - למתחילים
+// Starter File with TODOs - For Beginners
 // ========================================
 
-// TODO 1.1: ייבא את express
+// TODO 1.1: Import express
 
-// TODO 1.1: ייבא את MongoClient ו-ObjectId מ-mongodb
+// TODO 1.1: Import MongoClient and ObjectId from mongodb
 
-// TODO 1.1: ייבא את dotenv
+// TODO 1.1: Import dotenv
 
-// TODO 1.2: טען את dotenv.config()
+// TODO 1.2: Load dotenv.config()
 
-// TODO 1.2: צור אפליקציית express
+// TODO 1.2: Create express app
 
-// TODO 1.2: הגדר PORT מ-process.env.PORT (ברירת מחדל: 3000)
+// TODO 1.2: Set PORT from process.env.PORT (default: 3000)
 
-// TODO 1.2: הוסף middleware: app.use(express.json())
+// TODO 1.2: Add middleware: app.use(express.json())
 
-// TODO 1.3: צור משתנה db שיחזיק את החיבור
+// TODO 1.3: Create db variable to hold the connection
 let db = null;
 
 // ========================================
-// חלק 2: חיבור למסד נתונים
+// Part 2: Database Connection
 // ========================================
 
-// TODO 2.1: צור פונקציה async connectToDatabase()
+// TODO 2.1: Create async function connectToDatabase()
 async function connectToDatabase() {
-  // TODO: יצירת MongoClient
-  // TODO: התחברות
-  // TODO: שמירת החיבור ב-db
-  // TODO: הדפסת הודעת הצלחה
-  // TODO: טיפול בשגיאות (try/catch)
+  // TODO: Create MongoClient
+  // TODO: Connect
+  // TODO: Save connection to db
+  // TODO: Print success message
+  // TODO: Handle errors (try/catch)
 }
 
 // ========================================
-// חלק 3: פעולות CRUD בסיסיות
+// Part 3: Basic CRUD Operations
 // ========================================
 
-// TODO 3.1: POST /todos - יצירת משימה חדשה
-// רמז: בדוק שיש title, צור newTodo עם כל השדות, insertOne
+// TODO 3.1: POST /todos - Create new todo
+// Hint: Check title exists, create newTodo with all fields, insertOne
 
-// TODO 3.2: GET /todos - קבלת כל המשימות
-// רמז: find().sort({ createdAt: -1 }).toArray()
+// TODO 3.2: GET /todos - Get all todos
+// Hint: find().sort({ createdAt: -1 }).toArray()
 
-// TODO 3.3: GET /todos/:id - קבלת משימה ספציפית
-// רמז: בדוק תקינות ID, findOne עם ObjectId
+// TODO 3.3: GET /todos/:id - Get specific todo
+// Hint: Validate ID, findOne with ObjectId
 
-// TODO 3.4: PUT /todos/:id - עדכון משימה
-// רמז: בנה updateData, updateOne עם $set
+// TODO 3.4: PUT /todos/:id - Update todo
+// Hint: Build updateData, updateOne with $set
 
-// TODO 3.5: DELETE /todos/:id - מחיקת משימה
-// רמז: deleteOne, בדוק deletedCount
-
-// ========================================
-// חלק 4: פעולות נוספות
-// ========================================
-
-// TODO 4.1: PATCH /todos/:id/toggle - שינוי סטטוס
-// רמז: מצא, החלף completed, עדכן
-
-// TODO 4.2: GET /todos/completed - משימות שהושלמו
-// רמז: find({ completed: true })
-
-// TODO 4.3: GET /todos/pending - משימות ממתינות
-// רמז: find({ completed: false })
-
-// TODO 4.4: GET /todos/priority/:level - סינון לפי עדיפות
-// רמז: find({ priority: level })
-
-// TODO 4.5: GET /todos/search?q=... - חיפוש משימות
-// רמז: $regex עם options: 'i'
-
-// TODO 4.6: DELETE /todos - מחיקת כל המשימות שהושלמו
-// רמז: deleteMany({ completed: true })
+// TODO 3.5: DELETE /todos/:id - Delete todo
+// Hint: deleteOne, check deletedCount
 
 // ========================================
-// חלק 5: סטטיסטיקות
+// Part 4: Additional Operations
 // ========================================
 
-// TODO 5.1: GET /todos/stats - סטטיסטיקות
-// רמז: countDocuments לכל קטגוריה
+// TODO 4.1: PATCH /todos/:id/toggle - Toggle status
+// Hint: Find, toggle completed, update
+
+// TODO 4.2: GET /todos/completed - Get completed todos
+// Hint: find({ completed: true })
+
+// TODO 4.3: GET /todos/pending - Get pending todos
+// Hint: find({ completed: false })
+
+// TODO 4.4: GET /todos/priority/:level - Filter by priority
+// Hint: find({ priority: level })
+
+// TODO 4.5: GET /todos/search?q=... - Search todos
+// Hint: $regex with options: 'i'
+
+// TODO 4.6: DELETE /todos - Delete all completed todos
+// Hint: deleteMany({ completed: true })
 
 // ========================================
-// חלק 6: הפעלת השרת
+// Part 5: Statistics
 // ========================================
 
-// TODO 6.2: נתיב בסיסי
+// TODO 5.1: GET /todos/stats - Statistics
+// Hint: countDocuments for each category
+
+// ========================================
+// Part 6: Start Server
+// ========================================
+
+// TODO 6.2: Root route
 // app.get('/', (req, res) => { ... });
 
-// TODO 6.1: פונקציית startServer
+// TODO 6.1: startServer function
 async function startServer() {
-  // TODO: התחבר למסד נתונים
-  // TODO: הפעל את השרת
-  // TODO: הדפס הודעה
+  // TODO: Connect to database
+  // TODO: Start server
+  // TODO: Print message
 }
 
-// TODO 6.3: קרא ל-startServer()
+// TODO 6.3: Call startServer()
