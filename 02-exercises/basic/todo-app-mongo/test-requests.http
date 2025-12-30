@@ -1,0 +1,103 @@
+# בדיקות API - Todo List
+
+## יצירת משימות
+
+### משימה בעדיפות גבוהה
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+  "title": "קנה חלב",
+  "description": "חלב 3% מהסופר",
+  "priority": "high"
+}
+
+###
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+  "title": "נקה את הבית",
+  "description": "כל החדרים",
+  "priority": "medium"
+}
+
+###
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+  "title": "קרא ספר",
+  "priority": "low"
+}
+
+###
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+  "title": "הכן אוכל לשבת"
+}
+
+## קריאת משימות
+
+### כל המשימות
+GET http://localhost:3000/todos
+
+### משימה ספציפית
+GET http://localhost:3000/todos/YOUR_TODO_ID
+
+### משימות שהושלמו
+GET http://localhost:3000/todos/completed
+
+### משימות ממתינות
+GET http://localhost:3000/todos/pending
+
+### לפי עדיפות - גבוהה
+GET http://localhost:3000/todos/priority/high
+
+### לפי עדיפות - בינונית
+GET http://localhost:3000/todos/priority/medium
+
+### לפי עדיפות - נמוכה
+GET http://localhost:3000/todos/priority/low
+
+## חיפוש
+
+### חיפוש משימות
+GET http://localhost:3000/todos/search?q=חלב
+
+###
+GET http://localhost:3000/todos/search?q=בית
+
+## עדכון משימות
+
+### עדכון משימה
+PUT http://localhost:3000/todos/YOUR_TODO_ID
+Content-Type: application/json
+
+{
+  "title": "קנה חלב ולחם",
+  "completed": true
+}
+
+### החלפת סטטוס (toggle)
+PATCH http://localhost:3000/todos/YOUR_TODO_ID/toggle
+
+## מחיקת משימות
+
+### מחיקת משימה ספציפית
+DELETE http://localhost:3000/todos/YOUR_TODO_ID
+
+### מחיקת כל המשימות שהושלמו
+DELETE http://localhost:3000/todos
+
+## סטטיסטיקות
+
+### סטטיסטיקות כלליות
+GET http://localhost:3000/todos/stats
+
+## בסיסי
+
+### דף הבית
+GET http://localhost:3000/
