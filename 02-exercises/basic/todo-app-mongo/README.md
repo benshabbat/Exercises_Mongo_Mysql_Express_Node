@@ -66,8 +66,8 @@ PORT=3000
 ```javascript
 {
   _id: ObjectId("..."),           // MongoDB יוצר אוטומטית
-  title: "קנה חלב",               // חובה
-  description: "חלב 3% מהסופר",   // אופציונלי
+  title: "Buy milk",              // חובה
+  description: "3% milk from store", // אופציונלי
   completed: false,                // ברירת מחדל: false
   priority: "medium",              // low / medium / high
   createdAt: Date,                 // תאריך יצירה
@@ -156,8 +156,8 @@ async function connectToDatabase() {
 **דוגמת Body:**
 ```json
 {
-  "title": "קנה חלב",
-  "description": "חלב 3% מהסופר",
+  "title": "Buy milk",
+  "description": "3% milk from store",
   "priority": "high"
 }
 ```
@@ -169,7 +169,7 @@ async function connectToDatabase() {
   "message": "Todo created successfully",
   "data": {
     "_id": "...",
-    "title": "קנה חלב",
+    "title": "Buy milk",
     "completed": false,
     ...
   }
@@ -196,7 +196,7 @@ async function connectToDatabase() {
   "data": [
     {
       "_id": "...",
-      "title": "קנה חלב",
+      "title": "Buy milk",
       "completed": false,
       ...
     }
@@ -243,7 +243,7 @@ async function connectToDatabase() {
 **דוגמת Body:**
 ```json
 {
-  "title": "קנה חלב ולחם",
+  "title": "Buy milk and bread",
   "completed": true
 }
 ```
@@ -397,15 +397,15 @@ app.get('/', (req, res) => {
 ```bash
 curl -X POST http://localhost:3000/todos \
   -H "Content-Type: application/json" \
-  -d '{"title":"קנה חלב","priority":"high"}'
+  -d '{"title":"Buy milk","priority":"high"}'
 
 curl -X POST http://localhost:3000/todos \
   -H "Content-Type: application/json" \
-  -d '{"title":"נקה את הבית","description":"כל החדרים","priority":"medium"}'
+  -d '{"title":"Clean the house","description":"All rooms","priority":"medium"}'
 
 curl -X POST http://localhost:3000/todos \
   -H "Content-Type: application/json" \
-  -d '{"title":"קרא ספר","priority":"low"}'
+  -d '{"title":"Read a book","priority":"low"}'
 ```
 
 ### קבלת כל המשימות
@@ -420,7 +420,7 @@ curl -X PATCH http://localhost:3000/todos/YOUR_TODO_ID/toggle
 
 ### חיפוש
 ```bash
-curl "http://localhost:3000/todos/search?q=חלב"
+curl "http://localhost:3000/todos/search?q=milk"
 ```
 
 ### סטטיסטיקות
