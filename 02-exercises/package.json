@@ -1,0 +1,30 @@
+{
+  "name": "mongodb-learning-path",
+  "version": "1.0.0",
+  "description": "מדריך, תרגילים ופרויקט ל-MongoDB Native Driver ללא Mongoose",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongodb",
+    "tutorial",
+    "exercises",
+    "project",
+    "native-driver",
+    "node.js",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^6.3.0",
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
