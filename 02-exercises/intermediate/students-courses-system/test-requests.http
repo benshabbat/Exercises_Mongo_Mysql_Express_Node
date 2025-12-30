@@ -1,0 +1,182 @@
+# בדיקות API - Students & Courses System
+
+## סטודנטים
+
+### יצירת סטודנטים
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+
+###
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+  "name": "Sarah Smith",
+  "email": "sarah@example.com"
+}
+
+###
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+  "name": "Michael Johnson",
+  "email": "michael@example.com"
+}
+
+### קבלת כל הסטודנטים
+GET http://localhost:3000/students
+
+### קבלת סטודנט ספציפי
+GET http://localhost:3000/students/YOUR_STUDENT_ID_HERE
+
+### עדכון סטודנט
+PUT http://localhost:3000/students/YOUR_STUDENT_ID_HERE
+Content-Type: application/json
+
+{
+  "name": "John Doe Updated",
+  "email": "john.updated@example.com"
+}
+
+### מחיקת סטודנט
+DELETE http://localhost:3000/students/YOUR_STUDENT_ID_HERE
+
+---
+
+## קורסים
+
+### יצירת קורסים
+POST http://localhost:3000/courses
+Content-Type: application/json
+
+{
+  "name": "JavaScript for Beginners",
+  "instructor": "David Brown",
+  "credits": 4,
+  "description": "Learn the basics of JavaScript programming"
+}
+
+###
+POST http://localhost:3000/courses
+Content-Type: application/json
+
+{
+  "name": "Advanced React",
+  "instructor": "Emily Wilson",
+  "credits": 5,
+  "description": "Master React and build modern web applications"
+}
+
+###
+POST http://localhost:3000/courses
+Content-Type: application/json
+
+{
+  "name": "Python Data Science",
+  "instructor": "Michael Chen",
+  "credits": 3,
+  "description": "Introduction to data science with Python"
+}
+
+### קבלת כל הקורסים
+GET http://localhost:3000/courses
+
+### קבלת קורס ספציפי
+GET http://localhost:3000/courses/YOUR_COURSE_ID_HERE
+
+### עדכון קורס
+PUT http://localhost:3000/courses/YOUR_COURSE_ID_HERE
+Content-Type: application/json
+
+{
+  "name": "JavaScript Advanced",
+  "instructor": "David Brown",
+  "credits": 5
+}
+
+### מחיקת קורס (תיכשל אם יש סטודנטים רשומים)
+DELETE http://localhost:3000/courses/YOUR_COURSE_ID_HERE
+
+---
+
+## הרשמות
+
+### רישום סטודנט לקורס
+POST http://localhost:3000/students/YOUR_STUDENT_ID/enroll/YOUR_COURSE_ID
+
+### הסרת סטודנט מקורס
+DELETE http://localhost:3000/students/YOUR_STUDENT_ID/unenroll/YOUR_COURSE_ID
+
+### קבלת כל הקורסים של סטודנט
+GET http://localhost:3000/students/YOUR_STUDENT_ID/courses
+
+### קבלת כל הסטודנטים בקורס
+GET http://localhost:3000/courses/YOUR_COURSE_ID/students
+
+---
+
+## חיפוש וסינון
+
+### חיפוש סטודנטים לפי שם
+GET http://localhost:3000/students/search?name=John
+
+### חיפוש סטודנטים לפי אימייל
+GET http://localhost:3000/students/search?email=john@
+
+### חיפוש קורסים לפי מרצה
+GET http://localhost:3000/courses/search?instructor=David
+
+### סינון קורסים לפי נקודות זכות
+GET http://localhost:3000/courses/filter?minCredits=3&maxCredits=5
+
+### סינון סטודנטים עם/בלי קורסים
+GET http://localhost:3000/students/filter?hasEnrollments=true
+
+###
+GET http://localhost:3000/students/filter?hasEnrollments=false
+
+---
+
+## סטטיסטיקות
+
+### סטטיסטיקות כלליות
+GET http://localhost:3000/stats
+
+### סטטיסטיקות לקורס
+GET http://localhost:3000/courses/YOUR_COURSE_ID/stats
+
+### סטטיסטיקות לסטודנט
+GET http://localhost:3000/students/YOUR_STUDENT_ID/stats
+
+---
+
+## פיצ'רים מתקדמים
+
+### רישום מרובה לקורס
+POST http://localhost:3000/courses/YOUR_COURSE_ID/bulk-enroll
+Content-Type: application/json
+
+{
+  "studentIds": ["STUDENT_ID_1", "STUDENT_ID_2", "STUDENT_ID_3"]
+}
+
+### קורסים פופולריים
+GET http://localhost:3000/courses/popular?limit=5
+
+### החלפת קורס
+PUT http://localhost:3000/students/YOUR_STUDENT_ID/swap-course
+Content-Type: application/json
+
+{
+  "oldCourseId": "OLD_COURSE_ID",
+  "newCourseId": "NEW_COURSE_ID"
+}
+
+### מחיקת קורסים ריקים
+DELETE http://localhost:3000/courses/cleanup
