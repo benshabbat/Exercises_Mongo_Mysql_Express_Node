@@ -1,6 +1,6 @@
 // ========================================
-// מערכת סטודנטים וקורסים - MongoDB Native Driver
-// פתרון מלא
+// Students and Courses System - MongoDB Native Driver
+// Complete Solution
 // ========================================
 
 import express from 'express';
@@ -45,7 +45,7 @@ function validateObjectId(id) {
 }
 
 // ========================================
-// חלק 2: ניהול סטודנטים
+// Part 2: Students Management
 // ========================================
 
 // GET /students - קבלת כל הסטודנטים
@@ -195,7 +195,7 @@ app.delete('/students/:id', async (req, res) => {
 });
 
 // ========================================
-// חלק 3: ניהול קורסים
+// Part 3: Courses Management
 // ========================================
 
 // GET /courses - קבלת כל הקורסים
@@ -358,7 +358,7 @@ app.delete('/courses/:id', async (req, res) => {
 });
 
 // ========================================
-// חלק 4: ניהול הרשמות
+// Part 4: Enrollment Management
 // ========================================
 
 // POST /students/:studentId/enroll/:courseId - רישום סטודנט לקורס
@@ -528,7 +528,7 @@ app.get('/courses/:courseId/students', async (req, res) => {
 });
 
 // ========================================
-// חלק 5: חיפוש וסינון
+// Part 5: Search and Filter
 // ========================================
 
 // GET /students/search?name=...&email=...
@@ -624,7 +624,7 @@ app.get('/students/filter', async (req, res) => {
 });
 
 // ========================================
-// חלק 6: סטטיסטיקות
+// Part 6: Statistics
 // ========================================
 
 // GET /stats - סטטיסטיקות כלליות
@@ -762,7 +762,7 @@ app.get('/students/:studentId/stats', async (req, res) => {
 });
 
 // ========================================
-// חלק 7: פיצ'רים מתקדמים
+// Part 7: Advanced Features
 // ========================================
 
 // POST /courses/:courseId/bulk-enroll - רישום מרובה

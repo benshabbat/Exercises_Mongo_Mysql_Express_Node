@@ -1,6 +1,6 @@
 // ========================================
-// מערכת סטודנטים וקורסים - MongoDB Native Driver
-// קובץ התחלה עם TODO
+// Students and Courses System - MongoDB Native Driver
+// Starter File with TODOs
 // ========================================
 
 // TODO 1.1: ייבא את express
@@ -39,7 +39,7 @@ function validateObjectId(id) {
 }
 
 // ========================================
-// חלק 2: ניהול סטודנטים
+// Part 2: Students Management
 // ========================================
 
 // TODO 2.1: GET /students - קבלת כל הסטודנטים
@@ -58,7 +58,7 @@ function validateObjectId(id) {
 // רמז: deleteOne
 
 // ========================================
-// חלק 3: ניהול קורסים
+// Part 3: Courses Management
 // ========================================
 
 // TODO 3.1: GET /courses - קבלת כל הקורסים
@@ -75,7 +75,7 @@ function validateObjectId(id) {
 // רמז: countDocuments({ enrolledCourses: courseId })
 
 // ========================================
-// חלק 4: ניהול הרשמות
+// Part 4: Enrollment Management
 // ========================================
 
 // TODO 4.1: POST /students/:studentId/enroll/:courseId
@@ -91,7 +91,7 @@ function validateObjectId(id) {
 // רמז: find({ enrolledCourses: courseId })
 
 // ========================================
-// חלק 5: חיפוש וסינון
+// Part 5: Search and Filter
 // ========================================
 
 // TODO 5.1: GET /students/search?name=...
@@ -108,7 +108,7 @@ function validateObjectId(id) {
 // רמז: { enrolledCourses: { $size: 0 } } או { $not: { $size: 0 } }
 
 // ========================================
-// חלק 6: סטטיסטיקות
+// Part 6: Statistics
 // ========================================
 
 // TODO 6.1: GET /stats
@@ -119,7 +119,7 @@ function validateObjectId(id) {
 // TODO 6.3: GET /students/:studentId/stats
 
 // ========================================
-// חלק 7: פיצ'רים מתקדמים (אתגרים)
+// Part 7: Advanced Features (Challenges)
 // ========================================
 
 // TODO 7.1: POST /courses/:courseId/bulk-enroll

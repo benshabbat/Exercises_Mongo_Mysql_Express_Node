@@ -65,7 +65,41 @@ async function libraryManagement() {
     
     // משימה 2: הוסף 5 ספרים
     const books = [
-      // TODO: השלם את הספרים
+      {
+        title: 'Harry Potter and the Philosopher\'s Stone',
+        author: 'J.K. Rowling',
+        year: 1997,
+        genre: 'Fantasy',
+        available: 3
+      },
+      {
+        title: 'The Lord of the Rings',
+        author: 'J.R.R. Tolkien',
+        year: 1954,
+        genre: 'Fantasy',
+        available: 2
+      },
+      {
+        title: '1984',
+        author: 'George Orwell',
+        year: 1949,
+        genre: 'Science Fiction',
+        available: 5
+      },
+      {
+        title: 'The Alchemist',
+        author: 'Paulo Coelho',
+        year: 1988,
+        genre: 'Philosophy',
+        available: 1
+      },
+      {
+        title: 'The Hunger Games',
+        author: 'Suzanne Collins',
+        year: 2008,
+        genre: 'Science Fiction',
+        available: 4
+      }
     ];
     
     // TODO: הוסף את הספרים למסד נתונים
@@ -77,6 +111,7 @@ async function libraryManagement() {
     // TODO: מצא ספרים מאחרי 2000
     
     // TODO: מצא ספרי פנטזיה
+    // Hint: find({ genre: 'Fantasy' })
     
     // TODO: מצא ספרים עם יותר מ-2 עותקים
     
@@ -210,7 +245,7 @@ async function libraryManagement() {
     
     console.log('\n🧙 ספרי פנטזיה:');
     const fantasyBooks = await booksCollection
-      .find({ genre: 'פנטזיה' })
+      .find({ genre: 'Fantasy' })
       .toArray();
     fantasyBooks.forEach(book => {
       console.log(`  - ${book.title}`);
