@@ -1,0 +1,27 @@
+{
+  "name": "book-reviews-system",
+  "version": "1.0.0",
+  "description": "Book reviews system with text transformations - MongoDB + MySQL + Express",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node solution.js",
+    "dev": "node --watch solution.js",
+    "starter": "node starter.js"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "mysql",
+    "node",
+    "crud",
+    "authentication"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "mysql2": "^3.6.5"
+  }
+}

@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:latest
+    container_name: book-reviews-mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: reviews_db
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - book-reviews-network
+
+  # Mongo Express - MongoDB Web UI
+  mongo-express:
+    image: mongo-express:latest
+    container_name: book-reviews-mongo-express
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin123
+    depends_on:
+      - mongodb
+    networks:
+      - book-reviews-network
+
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: book-reviews-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: reviews_db
+      MYSQL_USER: reviews_user
+      MYSQL_PASSWORD: reviews_pass
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - book-reviews-network
+    command: --default-authentication-plugin=mysql_native_password
+
+  # phpMyAdmin - MySQL Web UI
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: book-reviews-phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: rootpass
+      UPLOAD_LIMIT: 50M
+    depends_on:
+      - mysql
+    networks:
+      - book-reviews-network
+
+volumes:
+  mongodb_data:
+    driver: local
+  mysql_data:
+    driver: local
+
+networks:
+  book-reviews-network:
+    driver: bridge

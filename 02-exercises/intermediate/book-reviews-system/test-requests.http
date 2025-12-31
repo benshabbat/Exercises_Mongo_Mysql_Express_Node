@@ -1,0 +1,223 @@
+### Book Reviews System - API Test Requests
+### Use REST Client extension in VS Code to run these requests
+
+### Variables
+@baseUrl = http://localhost:3000
+@username = alice
+@password = secret123
+
+### ============================================
+### 1. Register User
+### ============================================
+
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}"
+}
+
+### Register another user
+
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "bob",
+  "password": "pass456"
+}
+
+### ============================================
+### 2. Submit Review (UPPERCASE)
+### ============================================
+
+POST {{baseUrl}}/api/reviews
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}",
+  "bookTitle": "The Great Gatsby",
+  "reviewText": "This is an amazing book about the American Dream",
+  "transformType": "UPPERCASE",
+  "rating": 5
+}
+
+### ============================================
+### 3. Submit Review (REVERSED)
+### ============================================
+
+POST {{baseUrl}}/api/reviews
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}",
+  "bookTitle": "1984",
+  "reviewText": "Orwell predicted the future perfectly",
+  "transformType": "REVERSED",
+  "rating": 5
+}
+
+### ============================================
+### 4. Submit Review (WORD_SHUFFLE) - BONUS
+### ============================================
+
+POST {{baseUrl}}/api/reviews
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}",
+  "bookTitle": "To Kill a Mockingbird",
+  "reviewText": "A powerful story about justice and courage",
+  "transformType": "WORD_SHUFFLE",
+  "rating": 4
+}
+
+### ============================================
+### 5. Submit Review (ROT13) - BONUS
+### ============================================
+
+POST {{baseUrl}}/api/reviews
+Content-Type: application/json
+
+{
+  "username": "bob",
+  "password": "pass456",
+  "bookTitle": "The Great Gatsby",
+  "reviewText": "Fitzgerald was a genius writer",
+  "transformType": "ROT13",
+  "rating": 5
+}
+
+### ============================================
+### 6. Get Original Review (by ID)
+### ============================================
+
+### Replace {id} with actual review ID from previous responses
+GET {{baseUrl}}/api/reviews/1/original?username={{username}}&password={{password}}
+
+### ============================================
+### 7. Get Original Review (using Auth header)
+### ============================================
+
+GET {{baseUrl}}/api/reviews/2/original
+Authorization: Basic YWxpY2U6c2VjcmV0MTIz
+
+### Note: Basic YWxpY2U6c2VjcmV0MTIz is base64 encoded "alice:secret123"
+### You can generate at: https://www.base64encode.org/
+
+### ============================================
+### 8. Reverse Transformation (reversible)
+### ============================================
+
+POST {{baseUrl}}/api/reviews/1/reverse
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}"
+}
+
+### ============================================
+### 9. Reverse Transformation (not reversible)
+### ============================================
+
+POST {{baseUrl}}/api/reviews/3/reverse
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}"
+}
+
+### ============================================
+### 10. My Profile
+### ============================================
+
+GET {{baseUrl}}/api/users/me?username={{username}}&password={{password}}
+
+### ============================================
+### 11. My Profile (using Auth header)
+### ============================================
+
+GET {{baseUrl}}/api/users/me
+Authorization: Basic YWxpY2U6c2VjcmV0MTIz
+
+### ============================================
+### 12. My Reviews List - BONUS
+### ============================================
+
+GET {{baseUrl}}/api/reviews/my?username={{username}}&password={{password}}
+
+### ============================================
+### 13. My Reviews List (using Auth header) - BONUS
+### ============================================
+
+GET {{baseUrl}}/api/reviews/my
+Authorization: Basic YWxpY2U6c2VjcmV0MTIz
+
+### ============================================
+### 14. Book Statistics - BONUS
+### ============================================
+
+GET {{baseUrl}}/api/books/The Great Gatsby/stats
+
+### ============================================
+### 15. Book Statistics - Another Book - BONUS
+### ============================================
+
+GET {{baseUrl}}/api/books/1984/stats
+
+### ============================================
+### Error Cases
+### ============================================
+
+### Missing credentials
+POST {{baseUrl}}/api/reviews
+Content-Type: application/json
+
+{
+  "bookTitle": "Test Book",
+  "reviewText": "Test review",
+  "transformType": "UPPERCASE",
+  "rating": 5
+}
+
+###
+
+### Invalid credentials
+GET {{baseUrl}}/api/users/me?username=wrong&password=wrong
+
+###
+
+### Invalid rating
+POST {{baseUrl}}/api/reviews
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}",
+  "bookTitle": "Test Book",
+  "reviewText": "Test review",
+  "transformType": "UPPERCASE",
+  "rating": 10
+}
+
+###
+
+### Review not found
+GET {{baseUrl}}/api/reviews/9999/original?username={{username}}&password={{password}}
+
+###
+
+### Duplicate username
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "newpassword"
+}
